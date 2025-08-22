@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0ekoss56pd6k"]
+
+[ext_resource type="Script" uid="uid://lk1fmmcqx1aj" path="res://Scripts/keyboard_button.gd" id="1_rjtdi"]
+[ext_resource type="Texture2D" uid="uid://dsgh20otlicst" path="res://Assets/Keyboard Letters and Symbols.png" id="2_g1kye"]
+[ext_resource type="Texture2D" uid="uid://c1kgk2lht4nw" path="res://Assets/key_broken.png" id="3_1l1ab"]
+[ext_resource type="Texture2D" uid="uid://bwjbkudmxtptb" path="res://Assets/Keyboard Extras.png" id="4_jvl5w"]
+[ext_resource type="Texture2D" uid="uid://c5rdhlwpnsmj3" path="res://Assets/key_l.png" id="6_2t6gv"]
+[ext_resource type="Texture2D" uid="uid://btxm0kjqwp4o4" path="res://Assets/key_m.png" id="7_2ttqs"]
+[ext_resource type="Texture2D" uid="uid://ciwnqy26rnrnt" path="res://Assets/key_r.png" id="8_pmxjr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4mfi"]
+size = Vector2(76, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjtdi"]
+size = Vector2(76, 9)
+
+[node name="KeyboardButton" type="StaticBody2D" groups=["buttons"]]
+input_pickable = true
+script = ExtResource("1_rjtdi")
+
+[node name="BoxL" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-30, -1)
+scale = Vector2(4, 4)
+texture = ExtResource("6_2t6gv")
+vframes = 2
+
+[node name="BoxM" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -1)
+scale = Vector2(4, 4)
+texture = ExtResource("7_2ttqs")
+vframes = 2
+
+[node name="BoxR" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(30, -1)
+scale = Vector2(4, 4)
+texture = ExtResource("8_pmxjr")
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f4mfi")
+
+[node name="key" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("2_g1kye")
+hframes = 8
+vframes = 14
+frame = 40
+
+[node name="broken" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-2, -2)
+scale = Vector2(4, 4)
+texture = ExtResource("3_1l1ab")
+
+[node name="KeyboardExtras" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(34, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("4_jvl5w")
+hframes = 4
+vframes = 8
+frame = 10
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -40.5)
+shape = SubResource("RectangleShape2D_rjtdi")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

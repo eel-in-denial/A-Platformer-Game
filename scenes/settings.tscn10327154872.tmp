@@ -1,0 +1,239 @@
+[gd_scene load_steps=16 format=3 uid="uid://b82arvt5tvxws"]
+
+[ext_resource type="Texture2D" uid="uid://duc35on01lkym" path="res://Assets/settings_ui.png" id="1_83j8s"]
+[ext_resource type="PackedScene" uid="uid://bcx5uy6l4ah55" path="res://scenes/player.tscn" id="1_r6d6q"]
+[ext_resource type="Script" uid="uid://dy0lgxw2q1mpy" path="res://Scripts/main.gd" id="1_wqwn7"]
+[ext_resource type="Texture2D" uid="uid://bv2y58csvaxcg" path="res://Assets/Backboard.png" id="2_gjs24"]
+[ext_resource type="Texture2D" uid="uid://noqdjlettf8x" path="res://Assets/back_button.png" id="4_am25x"]
+[ext_resource type="PackedScene" uid="uid://dx8s3r2wro8ui" path="res://scenes/vibration_button.tscn" id="6_4ppmf"]
+[ext_resource type="PackedScene" uid="uid://c0ekoss56pd6k" path="res://scenes/keyboard_button.tscn" id="7_gjs24"]
+[ext_resource type="PackedScene" uid="uid://cn84bwhfoxfwm" path="res://scenes/language_dropdown.tscn" id="8_am25x"]
+[ext_resource type="PackedScene" uid="uid://ctiv10t08kqc" path="res://scenes/tick_box.tscn" id="9_4ppmf"]
+[ext_resource type="PackedScene" uid="uid://b5vo4d1p8pdjs" path="res://scenes/menu_button.tscn" id="9_am25x"]
+[ext_resource type="PackedScene" uid="uid://cxmy3crem7p3c" path="res://scenes/text.tscn" id="9_uhhto"]
+[ext_resource type="Texture2D" uid="uid://ba8c05suvrne0" path="res://Assets/play.png" id="11_01roj"]
+[ext_resource type="Texture2D" uid="uid://ci17ft1qkefge" path="res://Assets/settings.png" id="12_wqwn7"]
+[ext_resource type="Texture2D" uid="uid://d1arwq5uc1o5e" path="res://Assets/exit.png" id="13_oe2nd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4mfi"]
+size = Vector2(1347, 60)
+
+[node name="settings" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_wqwn7")
+
+[node name="SettingsUi" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 356)
+scale = Vector2(4, 4)
+texture = ExtResource("1_83j8s")
+
+[node name="SettingsUi2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-576, 356)
+scale = Vector2(4, 4)
+texture = ExtResource("1_83j8s")
+
+[node name="Backboard" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 412)
+scale = Vector2(4, 4)
+texture = ExtResource("2_gjs24")
+
+[node name="BackButton" type="StaticBody2D" parent="."]
+position = Vector2(114, 622)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackButton"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_am25x")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackButton"]
+position = Vector2(-591.5, 0)
+shape = SubResource("RectangleShape2D_f4mfi")
+metadata/_edit_lock_ = true
+
+[node name="Text" parent="BackButton" instance=ExtResource("9_uhhto")]
+offset_left = -99.0
+offset_top = -30.0
+offset_right = 93.0
+offset_bottom = 21.0
+text = "Wstecz"
+horizontal_alignment = 1
+english = "Back"
+german = "Zurück"
+dutch = "Terug"
+polish = "Wstecz"
+
+[node name="VibrationButton" parent="." instance=ExtResource("6_4ppmf")]
+position = Vector2(592, 592)
+
+[node name="KeyboardButton" parent="." instance=ExtResource("7_gjs24")]
+position = Vector2(248, 248)
+action = "up"
+
+[node name="LanguageDropdown" parent="." instance=ExtResource("8_am25x")]
+position = Vector2(936, 241)
+
+[node name="TickBox" parent="." instance=ExtResource("9_4ppmf")]
+position = Vector2(764, 592)
+
+[node name="Text" parent="." instance=ExtResource("9_uhhto")]
+offset_left = 81.0
+offset_top = 152.0
+offset_right = 273.0
+offset_bottom = 203.0
+english = "Controls"
+german = "Steuerung"
+dutch = "Besturing"
+polish = "Sterowanie"
+
+[node name="KeyboardButton2" parent="." instance=ExtResource("7_gjs24")]
+position = Vector2(408, 328)
+is_unlocked = true
+action = "right"
+
+[node name="KeyboardButton3" parent="." instance=ExtResource("7_gjs24")]
+position = Vector2(88, 328)
+action = "left"
+
+[node name="KeyboardButton4" parent="." instance=ExtResource("7_gjs24")]
+position = Vector2(248, 408)
+broken = true
+action = "down"
+
+[node name="MenuButton" parent="." instance=ExtResource("9_am25x")]
+position = Vector2(160, 108)
+
+[node name="Player" parent="." node_paths=PackedStringArray("debug_state") instance=ExtResource("1_r6d6q")]
+position = Vector2(-30, 544)
+scale = Vector2(4, 4)
+debug_state = NodePath("../Label")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Text2" parent="." instance=ExtResource("9_uhhto")]
+offset_left = 819.0
+offset_top = 151.0
+offset_right = 1179.0
+offset_bottom = 227.0
+text = "Language"
+english = "Language"
+german = "Sprache"
+dutch = "Taal"
+polish = "Język"
+
+[node name="Text3" parent="." instance=ExtResource("9_uhhto")]
+offset_left = 153.0
+offset_top = 286.0
+offset_right = 345.0
+offset_bottom = 337.0
+theme_override_font_sizes/font_size = 48
+text = "up"
+horizontal_alignment = 1
+english = "up"
+german = "hoch"
+dutch = "omhoog"
+polish = "góra"
+
+[node name="Text4" parent="." instance=ExtResource("9_uhhto")]
+offset_left = 52.0
+offset_top = 370.0
+offset_right = 244.0
+offset_bottom = 421.0
+theme_override_font_sizes/font_size = 48
+text = "left"
+english = "left"
+german = "links"
+dutch = "links"
+polish = "lewo"
+
+[node name="Text5" parent="." instance=ExtResource("9_uhhto")]
+offset_left = 370.0
+offset_top = 367.0
+offset_right = 562.0
+offset_bottom = 418.0
+theme_override_font_sizes/font_size = 48
+text = "right"
+english = "right"
+german = "rechts"
+dutch = "rechts"
+polish = "prawo"
+
+[node name="Text7" parent="." instance=ExtResource("9_uhhto")]
+offset_left = 643.0
+offset_top = 315.0
+offset_right = 835.0
+offset_bottom = 366.0
+theme_override_font_sizes/font_size = 48
+text = "jump"
+english = "jump"
+german = "rechts"
+dutch = "rechts"
+polish = "prawo"
+
+[node name="Text8" parent="." instance=ExtResource("9_uhhto")]
+offset_left = 883.0
+offset_top = 549.0
+offset_right = 1075.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 48
+text = "grab"
+english = "grab"
+german = "rechts"
+dutch = "rechts"
+polish = "prawo"
+
+[node name="Text6" parent="." instance=ExtResource("9_uhhto")]
+offset_left = 154.0
+offset_top = 453.0
+offset_right = 346.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 48
+text = "down"
+horizontal_alignment = 1
+english = "down"
+german = "runter"
+dutch = "omlaag"
+polish = "dół"
+
+[node name="KeyboardButton5" parent="." instance=ExtResource("7_gjs24")]
+position = Vector2(770, 337)
+action = "jump"
+
+[node name="KeyboardButton6" parent="." instance=ExtResource("7_gjs24")]
+position = Vector2(1002, 572)
+action = "grab"
+
+[node name="exit" type="TextureButton" parent="."]
+offset_left = -614.0
+offset_top = 420.0
+offset_right = -574.0
+offset_bottom = 460.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("13_oe2nd")
+
+[node name="play" type="TextureButton" parent="."]
+offset_left = -592.0
+offset_top = 157.0
+offset_right = -552.0
+offset_bottom = 197.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("11_01roj")
+
+[node name="settings" type="TextureButton" parent="."]
+offset_left = -603.0
+offset_top = 284.0
+offset_right = -563.0
+offset_bottom = 324.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("12_wqwn7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-576, 356)
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]

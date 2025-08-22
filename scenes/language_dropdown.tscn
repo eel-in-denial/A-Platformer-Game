@@ -1,0 +1,166 @@
+[gd_scene load_steps=13 format=3 uid="uid://cn84bwhfoxfwm"]
+
+[ext_resource type="Texture2D" uid="uid://cy6cgsi3f3sya" path="res://Assets/dropdown_b.png" id="1_3y42p"]
+[ext_resource type="Script" uid="uid://xdqttxgdonie" path="res://Scripts/language_dropdown.gd" id="1_5xauu"]
+[ext_resource type="Texture2D" uid="uid://2msj5o0drry" path="res://Assets/dropdown_m.png" id="2_lkn5w"]
+[ext_resource type="FontFile" uid="uid://bhsxnb6p61wtl" path="res://Assets/ttf/monogram.ttf" id="3_2546f"]
+[ext_resource type="Texture2D" uid="uid://cm1ncikd5iskq" path="res://Assets/dropdown_s2.png" id="5_ivykc"]
+[ext_resource type="Texture2D" uid="uid://bppnjfut8yr5" path="res://Assets/dropdown_s.png" id="6_ad286"]
+[ext_resource type="Texture2D" uid="uid://bkdk4ym6r3jmc" path="res://Assets/dropdown_s3.png" id="7_84pgn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4mfi"]
+size = Vector2(252, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkn5w"]
+size = Vector2(63, 38.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xauu"]
+size = Vector2(63, 9.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxb5k"]
+size = Vector2(63, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_854c7"]
+size = Vector2(63, 10.5)
+
+[node name="LanguageDropdown" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_5xauu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_3y42p")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.8147e-06, 0)
+shape = SubResource("RectangleShape2D_f4mfi")
+metadata/_edit_lock_ = true
+
+[node name="MenuCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 112.5)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_lkn5w")
+
+[node name="Language" type="Label" parent="."]
+texture_filter = 1
+offset_left = -102.0
+offset_top = -22.0
+offset_right = 24.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2546f")
+theme_override_font_sizes/font_size = 48
+text = "English"
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+position = Vector2(-61, 37)
+scale = Vector2(1.25, 1.25)
+
+[node name="menu" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(48.8, 60)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("2_lkn5w")
+
+[node name="engArea" type="Area2D" parent="Node2D/menu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/menu/engArea"]
+position = Vector2(9.53674e-07, -14.25)
+shape = SubResource("RectangleShape2D_5xauu")
+
+[node name="polArea" type="Area2D" parent="Node2D/menu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/menu/polArea"]
+position = Vector2(-9.53674e-07, -5)
+shape = SubResource("RectangleShape2D_vxb5k")
+
+[node name="gerArea" type="Area2D" parent="Node2D/menu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/menu/gerArea"]
+position = Vector2(-9.53674e-07, 4)
+shape = SubResource("RectangleShape2D_vxb5k")
+
+[node name="dutArea" type="Area2D" parent="Node2D/menu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/menu/dutArea"]
+position = Vector2(2.86102e-06, 13.75)
+shape = SubResource("RectangleShape2D_854c7")
+
+[node name="enghover" type="Sprite2D" parent="Node2D/menu"]
+visible = false
+position = Vector2(-0.499999, -14)
+texture = ExtResource("5_ivykc")
+
+[node name="polhover2" type="Sprite2D" parent="Node2D/menu"]
+visible = false
+position = Vector2(-0.499999, -5)
+texture = ExtResource("6_ad286")
+
+[node name="gerhover3" type="Sprite2D" parent="Node2D/menu"]
+visible = false
+position = Vector2(-0.499999, 4)
+texture = ExtResource("6_ad286")
+
+[node name="duthover4" type="Sprite2D" parent="Node2D/menu"]
+visible = false
+position = Vector2(-0.499999, 13)
+texture = ExtResource("7_84pgn")
+
+[node name="Language2" type="Label" parent="Node2D"]
+texture_filter = 1
+offset_left = -32.8
+offset_top = 0.8
+offset_right = 51.2
+offset_bottom = 38.8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2546f")
+theme_override_font_sizes/font_size = 32
+text = "English"
+
+[node name="Language3" type="Label" parent="Node2D"]
+texture_filter = 1
+offset_left = -32.8
+offset_top = 28.8
+offset_right = 51.2
+offset_bottom = 66.8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2546f")
+theme_override_font_sizes/font_size = 32
+text = "Polish"
+
+[node name="Language4" type="Label" parent="Node2D"]
+texture_filter = 1
+offset_left = -32.8
+offset_top = 56.8
+offset_right = 51.2
+offset_bottom = 94.8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2546f")
+theme_override_font_sizes/font_size = 32
+text = "German"
+
+[node name="Language5" type="Label" parent="Node2D"]
+texture_filter = 1
+offset_left = -32.8
+offset_top = 85.6
+offset_right = 51.2
+offset_bottom = 123.6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2546f")
+theme_override_font_sizes/font_size = 32
+text = "Dutch"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/menu/engArea" to="." method="_on_eng_area_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/menu/engArea" to="." method="_on_eng_area_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/menu/polArea" to="." method="_on_pol_area_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/menu/polArea" to="." method="_on_pol_area_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/menu/gerArea" to="." method="_on_ger_area_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/menu/gerArea" to="." method="_on_ger_area_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/menu/dutArea" to="." method="_on_dut_area_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/menu/dutArea" to="." method="_on_dut_area_mouse_exited"]

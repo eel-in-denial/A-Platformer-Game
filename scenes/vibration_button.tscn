@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx8s3r2wro8ui"]
+
+[ext_resource type="Script" uid="uid://bptwr0qnmysxi" path="res://Scripts/vibration_button.gd" id="1_4sufe"]
+[ext_resource type="Texture2D" uid="uid://dwvlqbv3a3f" path="res://Assets/extendable_left.png" id="1_fp88d"]
+[ext_resource type="Texture2D" uid="uid://cj2ncrd6qrkw0" path="res://Assets/extendable_middle.png" id="2_4sufe"]
+[ext_resource type="Texture2D" uid="uid://dm4vgoipokgse" path="res://Assets/extendable_right.png" id="3_fi3am"]
+[ext_resource type="PackedScene" uid="uid://cxmy3crem7p3c" path="res://scenes/text.tscn" id="4_fp88d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4mfi"]
+size = Vector2(72.5, 60)
+
+[node name="VibrationButton" type="StaticBody2D"]
+script = ExtResource("1_4sufe")
+
+[node name="left" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-123, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("1_fp88d")
+
+[node name="midle" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(10, 4)
+texture = ExtResource("2_4sufe")
+
+[node name="right" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(123, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("3_fi3am")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.6, 1)
+shape = SubResource("RectangleShape2D_f4mfi")
+
+[node name="Text" parent="." instance=ExtResource("4_fp88d")]
+offset_left = -196.0
+offset_top = -24.0
+offset_right = 110.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 48
+text = "screen shake"
+horizontal_alignment = 2
+english = "screen shake"
+german = "bildschirmwackeln"
+dutch = "schermschudding"
+polish = "drganie ekranu"
