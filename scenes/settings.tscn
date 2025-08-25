@@ -35,7 +35,7 @@ size = Vector2(1174, 20)
 size = Vector2(909, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7kvyq"]
-size = Vector2(16, 655.5)
+size = Vector2(21, 894)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dbjw"]
 size = Vector2(1196.5, 393.5)
@@ -73,7 +73,7 @@ texture = ExtResource("2_gjs24")
 [node name="Menu1" parent="." instance=ExtResource("4_7kvyq")]
 
 [node name="VibrationButton" parent="Menu1" instance=ExtResource("6_4ppmf")]
-position = Vector2(592, 592)
+position = Vector2(600, 592)
 
 [node name="KeyboardButton" parent="Menu1" instance=ExtResource("7_gjs24")]
 position = Vector2(248, 248)
@@ -84,7 +84,7 @@ first_key = "Z"
 position = Vector2(936, 241)
 
 [node name="TickBox" parent="Menu1" instance=ExtResource("9_4ppmf")]
-position = Vector2(764, 592)
+position = Vector2(772, 592)
 
 [node name="Text" parent="Menu1" instance=ExtResource("9_uhhto")]
 offset_left = 81.0
@@ -98,6 +98,7 @@ polish = "Sterowanie"
 
 [node name="KeyboardButton2" parent="Menu1" instance=ExtResource("7_gjs24")]
 position = Vector2(408, 328)
+is_unlocked = true
 action = "right"
 first_key = "V"
 
@@ -400,7 +401,7 @@ shape = SubResource("RectangleShape2D_ql1j0")
 one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
-position = Vector2(1162, 273.5)
+position = Vector2(1164.5, 262)
 shape = SubResource("RectangleShape2D_7kvyq")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
